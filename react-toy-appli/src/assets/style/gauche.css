@@ -1,0 +1,15 @@
+div.app div.result {
+  font-size : 30px;
+  border : none;
+}
+
+span.value {
+  color : red;
+  font-weight : bold;
+}
+
+button {
+  padding : 10px;
+  font-size : 20px;
+  margin : 10px;
+}

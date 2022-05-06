@@ -1,0 +1,35 @@
+html {
+  background-color : rgba(0,0,0,0.5);
+}
+h1{
+  position: relative;
+  text-align: center;
+}
+div.app {
+   position : relative;
+   min-height: 200px;
+ }
+
+div.app div {
+  width : 300px;
+  height: 300px;
+  border : solid thin black;
+  display : inline-block;
+  margin : 10px;
+  vertical-align: top;
+}
+/*div droite est aligne*/
+div.droite{
+  /*div droite est aligner au centre*/
+  
+
+  
+}
+div#insertReactHere{
+  position: relative;
+  text-align: center;
+  vertical-align: top;
+}
+div.gauche {
+width: 30px;
+}
