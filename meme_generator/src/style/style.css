@@ -8,25 +8,16 @@ body {
     
 }
 .header{
-    
-    display: flex;
+   display: flex;
     align-items: center;
     height: 65px;
     background: linear-gradient(90deg, #672280 1.18%, #3f47b3 100%);
     color: white;
     padding: 10px;
+    margin-bottom: 50px;
 
     /* offset-x | offset-y | blur-radius | spread-radius | color */
-    box-shadow: 0 2px 4px 2px #957896;
-}
-.form{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-}
-.meme{
-    text-align: center;
-    padding: 100px;
-
+    box-shadow: 0 2px 4px 2px #ae66c9;
 }
 .trollFace{
     height: 100%;
@@ -37,6 +28,32 @@ div.header > h2{
     font-size: 1.25rem;
     margin-right: auto;
     margin-left: 2%;
+}
+form{
+    display: grid;
+    gap:17px;
+    grid-template: 40px 40px / 1fr 1fr;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+form > input{
 
+    border-radius: 5px;
+    border: 1px solid #D5D4D8;
+    text-indent: 5px;
+}
+form > button{
+    grid-column: 1 / -1;
+    border-radius: 5px;
+    background: #7317eb;    
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.meme{
+    text-align: center;
+    padding: 100px;
 
 }
