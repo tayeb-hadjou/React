@@ -3,12 +3,21 @@
 }
 body {
     font-family: "Karla", sans-serif;
-    margin: 30;
+    margin:0;
+    margin-left: 3px;
+    
 }
 .header{
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
+    
+    display: flex;
+    align-items: center;
+    height: 65px;
+    background: linear-gradient(90deg, #672280 1.18%, #3f47b3 100%);
+    color: white;
+    padding: 10px;
+
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0 2px 4px 2px #957896;
 }
 .form{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -17,5 +26,17 @@ body {
 .meme{
     text-align: center;
     padding: 100px;
+
+}
+.trollFace{
+    height: 100%;
+    margin-right: 10px;
+    
+}
+div.header > h2{
+    font-size: 1.25rem;
+    margin-right: auto;
+    margin-left: 2%;
+
 
 }
