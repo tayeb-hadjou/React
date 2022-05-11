@@ -1,22 +1,10 @@
 import React from 'react';
-import Memes from '../data/memesData.js';
-export default function Meme() {
-    const [memImage,setMemeImage]=React.useState('');
-    function clickEvent(e) {
-        const meme = Memes.data.memes[Math.floor(Math.random() * Memes.data.memes.length)];
-        setMemeImage(meme);
-    }
-    const valButton='GEt a new meme image';
+export default function Meme(props) { 
     return (
-    <div id='meme'>
-        <div className='form'>
-            <input type='text' placeholder='top text'></input>
-            <input type='text' placeholder='bottom text'></input>
-            <button className='genButton' onClick={clickEvent}>{valButton}</button>
-        </div>
-            {memImage && <img src={memImage.url} alt='meme' className='memeImage'/>}
-        
-        
+    <div className='memeImageContainer'>
+                <h2 className='meme--text top'>{props.meme.topText}</h2>
+             <img src={props.meme.randomImage} alt='meme' className='memeImage'/>
+                <h2 className='meme--text bottom'>{props.meme.bottomText}</h2>
     </div>
     )
 }

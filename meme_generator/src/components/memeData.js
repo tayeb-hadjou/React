@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './form.js';
-import Meme2 from './meme2.js';
+import Meme from './meme.js';
 import MemesData from '../data/memesData.js';
 export default function MemeData() { 
 
@@ -10,6 +10,14 @@ export default function MemeData() {
         randomImage:'http://i.imgflip.com/1bij.jpg'
 
     });
+    function handleChangeForm(event){
+        setMeme(prev=>{
+            return{
+                ...prev,
+                [event.target.name]:event.target.value
+            }
+        })
+    }
     function formClick(){
         const memeURL = MemesData.data.memes[Math.floor(Math.random() * MemesData.data.memes.length)].url;
         setMeme(prev=>({           
@@ -21,8 +29,8 @@ export default function MemeData() {
 
     return (
     <div className='memeData'>
-        <Form handleClick={formClick}/>  
-        <Meme2 meme={meme} />      
+        <Form handleClick={formClick} handleChangeForm={handleChangeForm} meme={meme}/>  
+        <Meme meme={meme} />      
     </div>
     )
 }
