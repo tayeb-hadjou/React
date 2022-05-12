@@ -9,7 +9,7 @@ export default function Form(props){
                 onChange={props.handleChangeForm} 
                 name="topText" 
                 value={props.meme.topText}
-                maxlength="50" >
+                maxLength="50" >
 
             </input>
             <input 
@@ -18,7 +18,7 @@ export default function Form(props){
                 onChange={props.handleChangeForm} 
                 name="bottomText" 
                 value={props.meme.bottomText}
-                maxlength="50" >
+                maxLength="50" >
 
             </input>
             <button className='genButton' onClick={props.handleClick}>{valButton}</button>

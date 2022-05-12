@@ -8,6 +8,11 @@ body {
 
     
 }
+
+.app{
+background: linear-gradient(#eaf4ff, #ffffff);
+}
+
 .header{
    display: flex;
     align-items: center;
@@ -112,3 +117,41 @@ position: relative;
 
 }
 
+.footer{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 10px ;
+    right: 10px;
+    
+}
+.footer > p{
+    font-size: 0.625rem;
+    font-weight: 600;
+    
+}
+.mouseTraker {
+    position: relative;
+    width: 25px;
+    height: 13px;
+    border-radius: 2rem;
+    margin: 7px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid black;
+    box-sizing: content-box;
+}
+.mouseTrakerCircle{
+    position: absolute;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+}
+.coordinates{
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+
+}
