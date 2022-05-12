@@ -1,9 +1,7 @@
 import React from 'react';
 import Form from './form.js';
 import Meme from './meme.js';
-/*import MemesData from '../data/memesData.js';*/
 export default function MemeData() { 
-
     const [meme,setMeme]=React.useState({
         topText:"",
         bottomText:"",
@@ -11,12 +9,6 @@ export default function MemeData() {
 
     });
     const [allMemes,setAllMemes]=React.useState([]);
-
-    React.useEffect(()=>{
-        fetch('https://api.imgflip.com/get_memes')
-        .then(res=>res.json())    
-        .then(data=>setAllMemes(data.data.memes))
-    },[]);
 
     function handleChangeForm(event){
         setMeme(prev=>{
@@ -34,6 +26,12 @@ export default function MemeData() {
         }));
         
     }
+    React.useEffect(()=>{
+        fetch('https://api.imgflip.com/get_memes')
+        .then(res=>res.json())    
+        .then(data=>setAllMemes(data.data.memes))
+    },[]);
+
 
     return (
     <div className='memeData'>

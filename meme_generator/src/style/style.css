@@ -64,6 +64,7 @@ position: relative;
 .memeImage{
     
     max-width: 50%;
+    max-height: 420px;
     margin: auto;
     padding: auto;
     margin-top: 10px;
@@ -81,7 +82,7 @@ position: relative;
     margin: 15px 0;
     padding: 0 5px;
     font-family: impact, sans-serif;
-    font-size: 2em;
+    font-size: 2vw;
     text-transform: uppercase;
     color: white;
     letter-spacing: 1px;
@@ -99,9 +100,15 @@ position: relative;
 
 .bottom {
     bottom: 0;
+    width: 28%;
+    word-wrap: break-word;
+
 }
 
 .top {
     top: 0;
+    width: 28%;
+    word-wrap: break-word;
+
 }
 
