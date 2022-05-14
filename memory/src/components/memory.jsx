@@ -3,15 +3,33 @@ import CardBoard from './cardBoard.jsx';
 /**version fonctionnelle */
 export default function Memory(){
     const [images,setImages]=React.useState([]);
+    let key=0;
     React.useEffect(()=>{
-        /*test(1);*/
-        fetch('https://picsum.photos/v2/list?limit=4')
+        fetch('https://picsum.photos/v2/list?limit=5')
         .then(res=>res.json())
-        .then(res=>setImages(prev=>prev.push(...res)))
+        .then(res=>setImages(prev=>prev.push(
+            ...res.map(elm=>({
+                    url:elm.download_url,
+                    id:elm.id ,
+                    key:key,
+                    diplayed:false,
+                    find:false
+                })
+            ),
+            ...res.map(elm=>({
+                url:elm.download_url,
+                id:elm.id++ ,
+                key:key,
+                diplayed:false,
+                find:false
+
+            })
+            )))
+            );
         console.log(images)
 
-        
     },[])
+
 
     return (
         <div className="memory">
@@ -27,9 +45,29 @@ class Memory extends React.Component{
         this.state = {images:[]}
     }
     componentDidMount(){
-        fetch('https://picsum.photos/v2/list?limit=4')
+        fetch('https://picsum.photos/v2/list?limit=5')
         .then(res=>res.json())
-        .then(res=>this.setState({images:res}))
+        .then(res=>this.setState(prev=>({
+            images:prev.images.push(
+                ...res.map(elm=>({
+                    url:elm.download_url,
+                    id:elm.id ,
+                    key:key,
+                    diplayed:false,
+                    find:false
+                })
+            ),
+            ...res.map(elm=>({
+                url:elm.download_url,
+                id:elm.id++ ,
+                key:key,
+                diplayed:false,
+                find:false
+
+            })
+            ))
+        })))
+
     }
     
     render(){

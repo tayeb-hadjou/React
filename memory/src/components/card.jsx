@@ -1,8 +1,9 @@
 import React from 'react';
 export default function Card(props){
     return (
-        <div className="card">
+        <div className="card" onClick={props.handleClick}>
             <img src={props.imageURL} id={props.id} className='imageToFind' />
+
         </div>
     )
 }
@@ -15,7 +16,7 @@ class Card extends React.Component{
     }
     render(){
         return (
-            <div className="card">
+            <div    className="card" onClick={props.handleClick}>
                 <img src={this.props.imageURL} id={this.props.id} className='imageToFind' />
             </div>
         )

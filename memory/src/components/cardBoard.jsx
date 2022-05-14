@@ -2,12 +2,14 @@ import React from 'react';
 import Card from './card.jsx';
 export default function Memory(props){
 const [images,setImages]=React.useState(props.images); 
-let count = 0;
+function changeDisplay(id){
+    setImages(prev => prev.map(elm=> elm.id === id && !elm.find ? {...elm,displayed:!elm.displayed} : elm))
+}
 const imagesElement = images.map(image=>(
-    <Card 
-            key={image.id}
-            imageURL={image.download_url}
-            id={image.id}
+    
+    <Card   {...image}
+            imageURL={image.displayed?image.url:'./images/inconnu.jpg'}
+            handleClick={()=>changeDisplay(image.id)}
     />
 ));
 
@@ -24,18 +26,22 @@ class Memory extends React.Component{
         super(props);
         this.state = {images:props.images}
     }
+    displayImage(id){
+        this.setState(prev=>prev.images.map(elm=> elm.id === id && !elm.find ? {...elm,displayed:!elm.displayed} : elm))
+    }
+    
     render(){
         return (
             <div className="cardBoard">
                 {this.props.images.map(image=>(
-                    <Card
-                        key={image.id}
-                        imageURL={image.download_url}
-                        id={image.id}
+                    <Card   {...image}
+                            imageURL={image.displayed?image.url:'./images/inconnu.jpg'}
+                            handleClick={()=>this.changeDisplay(image.id)}
                     />
                 ))}
             </div>
         )
-    }
+
+
 }
 */
