@@ -1,16 +1,36 @@
-/*version aven des fonctions */
+
 import React from 'react';
+import Header from './header.jsx';
+import Footer from './footer.jsx';
+import Memory from './memory.jsx';
+/*version  fonctionnelle*/
+
 export default function App(){
-    return <div>Hello World</div>
+return (
+    <div className='app'>
+        <Header/>
+        <Memory/>
+        <Footer/>
+    </div>
+
+)    
 }
-/*version avec une calss app */
+/*app version classe */
 /*
 class App extends React.Component{
     constructor(props){
         super(props);
+        this.state = {}
     }
     render(){
-        return <div>Hello World</div>
+        return (
+            <div>
+                <Header/>
+                <Memory/>
+                <Footer/>
+            </div>
+        )
     }
 }
 */
+
