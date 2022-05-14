@@ -1,2 +1,2 @@
 # Memory Game
-- **recreation of memory games with React**
+- **recreation of memory game with React**
