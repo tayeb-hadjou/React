@@ -2,6 +2,7 @@ import React from 'react';
 import Card from './card.jsx';
 
 export default function Memory(props){
+const [diplayed,setDisplayed]=React.useState(0);
 const [images,setImages]=React.useState(props.images); 
 
 function handleClick(id){
@@ -9,18 +10,35 @@ function handleClick(id){
     let index=images.findIndex(find); 
     let newImageState=images[index];
     
-    if(!newImageState.displayed){
-        changeDisplay(newImageState,index);
-    }
-    else{
-        if(!newImageState.find){
+    if(!newImageState.displayed ){
+        if( diplayed==0){
+         changeDisplay(newImageState,index);
+            setDisplayed(prev=>prev+1);
+            //isFound(newImageState,index);
+        }
+        else if(diplayed==1){
+            setDisplayed(prev=>prev+1);
             changeDisplay(newImageState,index);
+            let test=isFound(newImageState,index);
+            if(test){
+                setDisplayed(0);
+            }
+            else{
+                console.log('wagi wite fait')
+                setTimeout(()=>{goBack(newImageState,index)},2000);
+
+            }
         }
     }
-    
-    isFound(newImageState,index);
-    
-    //console.log(images);
+}
+function goBack(newImageState,index){
+    changeDisplay(newImageState,index);
+    const findE = elm => (elm.displayed && !elm.find);
+    let indexE=images.findIndex(findE);
+    let newImageStateE=images[indexE];
+    changeDisplay(newImageStateE,indexE);
+    setDisplayed(0);
+
 }
 function changeDisplay(newImageState,index){
     newImageState.displayed=!newImageState.displayed;
@@ -42,8 +60,11 @@ function isFound(newImageState,index){
                 newArray[index2]=newImageState2;
                 return newArray;
             });
+            setDisplayed(0);
+            return true;
         }
      }
+     return false;
 }
 
 
