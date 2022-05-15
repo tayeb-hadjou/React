@@ -7,7 +7,7 @@ export default function Memory(){
     let key2=5;
     let id=0;
     React.useEffect(()=>{
-        fetch('https://picsum.photos/v2/list?limit=5')
+        fetch('https://picsum.photos/v2/list?page=9&limit=4')
         .then(res=>res.json())
         .then(res=>setImages(prev=>prev.push(
             ...res.map(elm=>({

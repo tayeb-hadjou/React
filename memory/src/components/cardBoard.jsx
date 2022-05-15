@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './card.jsx';
-/**hbeskan dgha din */
+
 export default function Memory(props){
 const [images,setImages]=React.useState(props.images); 
 
@@ -72,7 +72,7 @@ class Memory extends React.Component{
         this.handleClick=this.handleClick.bind(this);
         this.changeDisplay=this.changeDisplay.bind(this);
         this.isFound=this.isFound.bind(this);
-        
+
     }
     handleClick(id){
         const find=elm=>elm.id===id;
