@@ -66,20 +66,14 @@ function isFound(newImageState,index){
      }
      return false;
 }
-
-
-
 const imagesElement = images.map(image=>(
-    
     <Card   
             {...image}
             imageURL={image.displayed?image.url:'./images/inconnu.jpg'}
             handleClick={()=>handleClick(image.id)}
     />
 ));
-
 return (
-
     <div className="cardBoard">
         {imagesElement}
     </div>
@@ -89,11 +83,8 @@ return (
 class Memory extends React.Component{
     constructor(props){
         super(props);
-        this.state = {images:[]}
+        this.state = {images:[],diplayed:0}
         this.handleClick=this.handleClick.bind(this);
-        this.changeDisplay=this.changeDisplay.bind(this);
-        this.isFound=this.isFound.bind(this);
-
     }
     handleClick(id){
         const find=elm=>elm.id===id;
@@ -117,6 +108,15 @@ class Memory extends React.Component{
             images:[...prev.images.slice(index+1),newImageState]
         }));
     }
+    goBack(newImageState,index){
+        changeDisplay(newImageState,index);
+        const findE = elm => (elm.displayed && !elm.find);
+        let indexE=this.state.images.findIndex(findE);
+        let newImageStateE=this.state.images[indexE];
+        changeDisplay(newImageStateE,indexE);
+        this.setState({displayed:0});
+    }
+
     isFound(newImageState,index){
         const find = elm=> elm.key === newImageState.key && elm.id !== newImageState.id;
         let index2 = this.state.images.findIndex(find);
@@ -136,30 +136,7 @@ class Memory extends React.Component{
             }
         }
     }
-    componentDidMount(){
-        fetch('https://picsum.photos/v2/list?limit=5')
-        .then(res=>res.json())
-        .then(res=>this.setState(prev=>({
-            images:prev.images.push(
-                ...res.map(elm=>({
-                    url:elm.download_url,
-                    id:elm.id ,
-                    key:key,
-                    diplayed:false,
-                    find:false
-                })
-            ),
-            ...res.map(elm=>({
-                url:elm.download_url,
-                id:elm.id++ ,
-                key:key,
-                diplayed:false,
-                find:false
-            })
-            ))
-        })));
-        console.log(images)
-    }
+
     render(){
         return (
             <div className="memory">
