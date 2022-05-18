@@ -24,7 +24,7 @@ function handleClick(key){
                 props.find()
             }
             else{
-                setTimeout(()=>{goBack(newImageState,index)},2000);
+                setTimeout(()=>{goBack(newImageState,index)},1000);
 
             }
         }
@@ -67,8 +67,7 @@ function isFound(newImageState,index){
 const elements=images.map(image=>(
     <Card   
             {...image}
-            /*imageURL={image.displayed?image.url:'./images/inconnu.jpg'}*/
-            imageURL={image.url}
+            imageURL={image.displayed?image.url:'./images/inconnu.jpg'}     
             handleClick={()=>handleClick(image.key)}
             
     />

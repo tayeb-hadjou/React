@@ -1,8 +1,8 @@
 import React from   'react';
 import CardBoard from './cardBoard.jsx';
 import ScoreBoard from './scoreboard.jsx';
-import Control from './control.jsx';
 import shuffle from '../scripts/shuffle.js';
+import ControlBack from './controlBack.jsx';
 /**version fonctionnelle */
 export default function Memory(props){
     const [nbrPairsFound,setNbrPairsFound]=React.useState(0);
@@ -12,8 +12,8 @@ export default function Memory(props){
     function find(){
         setNbrPairsFound(prev=>prev+1);
     }
-    function changeNbrPairs(){
-        console.log('test')
+    function back(){
+        props.handleClick();
     }
     function test(){
         let array= props.images.data.slice();
@@ -46,11 +46,9 @@ export default function Memory(props){
     return (
         <div className="memory">
             <ScoreBoard nbrPairs={props.nbrPairs}/>
-            {console.log(props.nbrPairs)}
-            {console.log("de memory")}
-            {console.log(images)}
            <CardBoard images={images} find={find} keys={keys}/>  
-            <Control changeNbrPairs={changeNbrPairs}/>
+           <ControlBack handleClick={back}/>
+
         </div>
     )
 }

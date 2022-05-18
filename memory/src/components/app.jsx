@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './header.jsx';
 import Footer from './footer.jsx';
 import Memory from './memory.jsx';
-import Control2 from './control2.jsx';
+import Control from './control.jsx';
 
 
 /*version  fonctionnelle*/
@@ -17,6 +17,7 @@ export default function App(){
     const [images,setImages]=React.useState({
         data:[]
     });
+    
 
     function changeNbrPairs(nbrPairs){
         setNbrPairs(nbrPairs);
@@ -56,45 +57,19 @@ export default function App(){
         ]
         return array;
     }
-    
-    
-    
-    /*
-    function filled(res){
-        let array= [
-            ...res.map(elm=>({
-                url:elm.download_url,
-                id:id++ ,
-                key:key1--,
-                diplayed:false,
-                find:false
-            })
-        ),
-        ...res.map(elm=>({
-            url:elm.download_url,
-            id:id ++,
-            key:key2--,
-            diplayed:false,
-            find:false
-        })
-        )
-        ]
-        array=shuffle(array);
-        return array;
+    function reset(){
+        setImages({
+            data:[]
+        });
+        setNbrPairs(0);
     }
-    */
-       
 
 return (
     <div className='app'>
         <Header/>
-        {console.log(images)}
-        {nbrPairs ==0 ?<Control2 changeNbrPairs={changeNbrPairs}/>:<Memory nbrPairs={nbrPairs} images={images} />}
-        
+        {nbrPairs ==0 ?<Control changeNbrPairs={changeNbrPairs}/>:<Memory nbrPairs={nbrPairs} images={images} handleClick={reset} />}
         <Footer/>
     </div>
 
 )    
 }
-
-
