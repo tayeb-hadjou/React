@@ -15,7 +15,7 @@ export default function Control2(props){
                            
                        </div>
                       <div>
-                          <div onClick={()=>props.changeNbrPairs(7)} value='12'className='nbrPairs--hard'><span>12</span></div>
+                          <div onClick={()=>props.changeNbrPairs(12)} value='12'className='nbrPairs--hard'><span>12</span></div>
                           
                       </div>
                     </div>

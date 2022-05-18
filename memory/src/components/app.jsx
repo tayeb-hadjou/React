@@ -4,32 +4,40 @@ import Header from './header.jsx';
 import Footer from './footer.jsx';
 import Memory from './memory.jsx';
 import Control2 from './control2.jsx';
-import shuffle from '../scripts/shuffle.js';
+
 
 /*version  fonctionnelle*/
 
 export default function App(){
+    let key=0;
     const [nbrPairs,setNbrPairs]=React.useState(0);
+    const [allImages,setAllImages]=React.useState({
+        data:[]
+    });
     const [images,setImages]=React.useState({
         data:[]
     });
-    let id=nbrPairs;
-    let key1=nbrPairs;
-    let key2=nbrPairs;
 
     function changeNbrPairs(nbrPairs){
         setNbrPairs(nbrPairs);
+        setImages(prev=>{
+            let array=allImages.data.slice(0,nbrPairs);
+            prev.data.push(...array);
+            return prev;
+        })
     }
     React.useEffect(()=>{
         fetch(`https://picsum.photos/v2/list?page=9&limit=12`)
         .then(res=>res.json())
-        .then(data=> test(data))
+        .then(data=>fillAllImages(data))
         console.log("de app")
             console.log(images);
-    },[nbrPairs])
-    function test(data){
+    },[])
+
+
+    function fillAllImages(data){
         let array= filled(data);
-        setImages(prev=>{
+        setAllImages(prev=>{
             prev.data.splice(0,prev.data.length);
             prev.data.push(...array);
             return prev;
@@ -37,6 +45,21 @@ export default function App(){
         })    
         
     }
+    function filled(data){
+        let array=[
+            ...data.map(elm=>({
+                url:elm.download_url,
+                key:key++ ,
+                diplayed:false,
+                find:false
+            }))
+        ]
+        return array;
+    }
+    
+    
+    
+    /*
     function filled(res){
         let array= [
             ...res.map(elm=>({
@@ -59,12 +82,15 @@ export default function App(){
         array=shuffle(array);
         return array;
     }
+    */
        
 
 return (
     <div className='app'>
         <Header/>
+        {console.log(images)}
         {nbrPairs ==0 ?<Control2 changeNbrPairs={changeNbrPairs}/>:<Memory nbrPairs={nbrPairs} images={images} />}
+        
         <Footer/>
     </div>
 

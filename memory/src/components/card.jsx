@@ -4,7 +4,7 @@ export default function Card(props){
 
     return (
         <div className="card" onClick={props.handleClick}  style={style}>
-            <img src={props.imageURL} id={props.id}  style={props.find?{opacity:0.5}:{}}/>
+            <img src={props.imageURL}  style={props.find?{opacity:0.5}:{}}/>
 
         </div>
     )
