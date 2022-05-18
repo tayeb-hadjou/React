@@ -1,5 +1,4 @@
 * {
-    margin:0;
     padding: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -7,15 +6,20 @@
 body , html,.app ,#reactHere{
     height: 100%;
     width: 100%;
-    margin: 0 ;
     text-align: center;
+    margin-bottom: 0;
+    margin:0;
 
 }
-#reactHere{
-    height: 95%;
+.footer{
+
+    background-color: beige;
 }
+
+
 
 .header {
+    margin:0;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -25,47 +29,88 @@ body , html,.app ,#reactHere{
     background: linear-gradient(180deg, #ffffff 1.18%, #e9fffe 100%);
 
 }
-
-.footer{
-    /*footer en bas */
-    position: inherit;
-    bottom: 0;
-    margin-bottom: 0;
-    background-color: #7c7c74;
-    width: 100%;
+.nbrPairsChoose{
+    display: inline-flex;
 }
-.memory{
-    height: 90%;
-    background-color: rgb(255, 244, 196);
+.nbrPairsChoose > div{
+
+    width: 150px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+.nbrPairsChoose > div >div{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+.nbrPairsChoose > div >div:hover{
+    width: 150px;
+    height: 150px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 100%;
+    color: rgb(245, 255, 220);
+}
+.nbrPairsChoose > div >div>span{
+    font-size: 40px;
+}
+.nbrPairsChooseBoard > .test >span{
+    margin: 55px;
+}
+
+.nbrPairs--hard {
+    background-color: rgb(255, 0, 0);
+}
+.nbrPairs--medium{
+    background-color: rgb(255, 255, 0);
+}
+.nbrPairs--easy{
+    background-color: rgb(0, 255, 0);
+}
+
+.memory{
+    height: 82%;
+    background-color: rgb(255, 244, 196);   
+    padding: 10px;
+    height: max-content;
+    width: max-content;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-left: auto;
+
+    
 }
 .cardBoard{
-    width: 500px;
+    min-width: 500px;
+    max-width: 1000px;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-flow: row wrap;
-    
-    
+    box-shadow : 0px 0px 6px 2px rgba(0,0,0,0.4);
+    padding: 10px;
+
 }
+
 .card{
+
     height: 100px;
     width: 100px;
-    display: inline-block;
-    justify-content: space-between;
     border-radius: 10px;
     transition: all 0.8s ease;
-
+    margin: 6px;
     
 }
-.imageToFind{
+.card img{
     width: 100%;
     height: 100%; 
     border-radius: 10px;  
     transition: all 0.8s ease;
 }
-
-
-
