@@ -44,6 +44,7 @@ export default function Memory(props){
 
     
     return (
+        
         <div className="memory">
             <ScoreBoard nbrPairs={props.nbrPairs} nbrPairsFound={nbrPairsFound}/>
            {nbrPairsFound===keys ?
@@ -52,9 +53,11 @@ export default function Memory(props){
                <ControlBack handleClick={back}/>
             </div>:
            <CardBoard images={images} find={find} keys={keys} cheat={cheat}/>  }
+           <div className='bottonControl'>
            {nbrPairsFound<keys ?<ControlBack handleClick={back}/>:null}
-           {nbrPairsFound<keys?<button onClick={()=>setCheat(prev=>!prev)}>cheat</button>:null}
-
+           {nbrPairsFound<keys?<button onClick={()=>setCheat(prev=>!prev)} className='cheat'>cheat</button>:null}
+           </div>
+        
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 export default function Control2(props){
     const hard=16;
-    const medium=10;
+    const medium=12;
     const easy=6;
 
 

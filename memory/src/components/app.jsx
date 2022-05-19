@@ -66,8 +66,12 @@ export default function App(){
 return (
     <div className='app'>
         <Header/>
-        {nbrPairs ==0 ?<Control changeNbrPairs={changeNbrPairs}/>:<Memory nbrPairs={nbrPairs} images={images} handleClick={reset} />}
         
+        {nbrPairs ==0 ?<Control changeNbrPairs={changeNbrPairs}/>:
+        
+            <Memory nbrPairs={nbrPairs} images={images} handleClick={reset} />
+            
+        }
     </div>
 
 )    

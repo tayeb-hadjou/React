@@ -79,9 +79,11 @@ const elements=images.map(image=>(
 ))
 
 return (
+    <div className="box">
     <div className="cardBoard" style={style()}>
         {elements}
         
+    </div>
     </div>
 )
 }
