@@ -3,6 +3,7 @@ import Card from './card.jsx';
 export default function Memory(props){
 const [diplayed,setDisplayed]=React.useState(0);
 const [images,setImages]=React.useState(props.images);
+
 const style=()=>{
     if(props.keys===6){return {width:'10px'}}
     else if(props.keys===10){return {width:'800px'}}
@@ -31,6 +32,7 @@ function handleClick(key){
 
             }
         }
+        props.changeNbrTries();
     }
 }
 function goBack(newImageState,index){

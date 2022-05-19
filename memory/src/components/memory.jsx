@@ -9,6 +9,10 @@ export default function Memory(props){
     const [keys,setKeys]=React.useState(props.nbrPairs);
     const [images,setImages]=React.useState(test());
     const [cheat,setCheat]=React.useState(false);
+    const [nbrTries,setNbrTires]=React.useState(0);
+    function changeNbrTries(){
+        setNbrTires(prev=>prev+1);
+    }
 
     function find(){
         setNbrPairsFound(prev=>prev+1);
@@ -46,13 +50,14 @@ export default function Memory(props){
     return (
         
         <div className="memory">
-            <ScoreBoard nbrPairs={props.nbrPairs} nbrPairsFound={nbrPairsFound}/>
+            <ScoreBoard nbrPairs={props.nbrPairs} nbrPairsFound={nbrPairsFound} nbrTries={nbrTries}/>
            {nbrPairsFound===keys ?
            <div >
-               <h1>GG click to start a new game</h1>
+               <h1>GG you succeeded after :{Math.floor(nbrTries/2)}</h1>
+               <h1>click to try again</h1>
                <ControlBack handleClick={back}/>
             </div>:
-           <CardBoard images={images} find={find} keys={keys} cheat={cheat}/>  }
+           <CardBoard images={images} find={find} keys={keys} cheat={cheat} changeNbrTries={changeNbrTries}/>  }
            <div className='bottonControl'>
            {nbrPairsFound<keys ?<ControlBack handleClick={back}/>:null}
            {nbrPairsFound<keys?<button onClick={()=>setCheat(prev=>!prev)} className='cheat'>cheat</button>:null}
