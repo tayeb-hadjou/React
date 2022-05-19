@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from './header.jsx';
-import Footer from './footer.jsx';
 import Memory from './memory.jsx';
 import Control from './control.jsx';
 
@@ -28,7 +27,7 @@ export default function App(){
         })
     }
     React.useEffect(()=>{
-        fetch(`https://picsum.photos/v2/list?page=9&limit=12`)
+        fetch(`https://picsum.photos/v2/list?page=9&limit=16`)
         .then(res=>res.json())
         .then(data=>fillAllImages(data))
         console.log("de app")
@@ -68,7 +67,7 @@ return (
     <div className='app'>
         <Header/>
         {nbrPairs ==0 ?<Control changeNbrPairs={changeNbrPairs}/>:<Memory nbrPairs={nbrPairs} images={images} handleClick={reset} />}
-        <Footer/>
+        
     </div>
 
 )    

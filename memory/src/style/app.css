@@ -8,21 +8,24 @@ body , html,.app ,#reactHere{
     margin:0;
 
 }
-.footer{
-    background-color: beige;
-}
-
-
-
 .header {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 65px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 4px 0px #76fa76;
-    background: linear-gradient(180deg, #ffffff 1.18%, #e9fffe 100%);
+    height: 50px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 4px 0px #f7bdff;
+    background: linear-gradient(50deg, #ffffff 1.18%, #ffe9fa 90%);
 
+}
+.scoreBoard{
+    display: flex;
+    justify-content: center;
+    height: 65px;
+}
+.scoreBoard> h4{
+    margin-left:50px;
+    margin-right: 50px;
 }
 
 .nbrPairsChoose{
@@ -72,9 +75,7 @@ body , html,.app ,#reactHere{
 }
 
 .memory{
-    height: 82%;
-    background-color: rgb(255, 244, 196);   
-    padding: 10px;
+    height: 82%; 
     height: max-content;
     width: max-content;
     margin-top: 0px;
@@ -91,7 +92,7 @@ body , html,.app ,#reactHere{
     align-items: center;
     justify-content: space-between;
     flex-flow: row wrap;
-    box-shadow : 0px 0px 6px 2px rgba(0,0,0,0.4);
+
     padding: 10px;
 
 }
@@ -100,14 +101,23 @@ body , html,.app ,#reactHere{
 
     height: 100px;
     width: 100px;
+    margin: 10px;
+}
+.card img:hover{
+    height: 115%;
+    width: 115%;
     border-radius: 10px;
-    transition: all 0.8s ease;
-    margin: 6px;
-    
+    transition: all 0.3s ease;
+
+
 }
 .card img{
     width: 100%;
     height: 100%; 
     border-radius: 10px;  
     transition: all 0.8s ease;
+}
+.back{
+    width: 50px;
+    background-color: aqua;
 }

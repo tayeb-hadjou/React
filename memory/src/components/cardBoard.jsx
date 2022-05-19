@@ -3,8 +3,11 @@ import Card from './card.jsx';
 export default function Memory(props){
 const [diplayed,setDisplayed]=React.useState(0);
 const [images,setImages]=React.useState(props.images);
-const [nums,setnums]=React.useState(props.nums);
+const style=()=>{
+    if(props.keys===6){return {width:'10px'}}
+    else if(props.keys===10){return {width:'800px'}}
 
+}
 function handleClick(key){
     const find=elm=>elm.key===key;
     let index=images.findIndex(find); 
@@ -67,14 +70,16 @@ function isFound(newImageState,index){
 const elements=images.map(image=>(
     <Card   
             {...image}
-            imageURL={image.displayed?image.url:'./images/inconnu.jpg'}     
+            imageURL={image.displayed|| props.cheat?image.url:'./images/inconnu.jpg'}  
+            diplayed={image.displayed}
             handleClick={()=>handleClick(image.key)}
+            keys={props.keys}
             
     />
 ))
 
 return (
-    <div className="cardBoard">
+    <div className="cardBoard" style={style()}>
         {elements}
         
     </div>

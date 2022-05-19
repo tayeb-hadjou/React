@@ -8,6 +8,7 @@ export default function Memory(props){
     const [nbrPairsFound,setNbrPairsFound]=React.useState(0);
     const [keys,setKeys]=React.useState(props.nbrPairs);
     const [images,setImages]=React.useState(test());
+    const [cheat,setCheat]=React.useState(false);
 
     function find(){
         setNbrPairsFound(prev=>prev+1);
@@ -30,7 +31,7 @@ export default function Memory(props){
         })),
         ...data.map(elm=>({
             ...elm,
-            key:elm.key+12,
+            key:elm.key+17,
             num:elm.key
             
         })
@@ -39,15 +40,20 @@ export default function Memory(props){
         array=shuffle(array);
         return array;
     }
-  
 
 
     
     return (
         <div className="memory">
-            <ScoreBoard nbrPairs={props.nbrPairs}/>
-           <CardBoard images={images} find={find} keys={keys}/>  
-           <ControlBack handleClick={back}/>
+            <ScoreBoard nbrPairs={props.nbrPairs} nbrPairsFound={nbrPairsFound}/>
+           {nbrPairsFound===keys ?
+           <div >
+               <h1>GG click to start a new game</h1>
+               <ControlBack handleClick={back}/>
+            </div>:
+           <CardBoard images={images} find={find} keys={keys} cheat={cheat}/>  }
+           {nbrPairsFound<keys ?<ControlBack handleClick={back}/>:null}
+           {nbrPairsFound<keys?<button onClick={()=>setCheat(prev=>!prev)}>cheat</button>:null}
 
         </div>
     )

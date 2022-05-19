@@ -1,21 +1,23 @@
 import React from 'react';
 export default function Control2(props){
-    
+    const hard=16;
+    const medium=10;
+    const easy=6;
 
 
     return (<div className='nbrPairsChooseBoard'>
-                       <h3>choose nbrPairs</h3> 
+                       <h3>choose number of pairs</h3> 
                     <div className='nbrPairsChoose'>
                        <div>
-                           <div onClick={()=>props.changeNbrPairs(5)} value='5' className='nbrPairs--easy'><span>5</span></div>
+                           <div onClick={()=>props.changeNbrPairs(easy)} value={easy} className='nbrPairs--easy'><span>{easy}</span></div>
                            
                            </div>
                        <div>
-                           <div onClick={()=>props.changeNbrPairs(7)} value='7' className='nbrPairs--medium'><span>7</span></div>
+                           <div onClick={()=>props.changeNbrPairs(medium)} value={medium} className='nbrPairs--medium'><span>{medium}</span></div>
                            
                        </div>
                       <div>
-                          <div onClick={()=>props.changeNbrPairs(12)} value='12'className='nbrPairs--hard'><span>12</span></div>
+                          <div onClick={()=>props.changeNbrPairs(hard)} value={hard} className='nbrPairs--hard'><span>{hard}</span></div>
                           
                       </div>
                     </div>
