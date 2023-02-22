@@ -27,3 +27,4 @@ npm run build #build the application
 ```bash
 npm start #run the application
 ```
+- Open the application in your browser at the address `http://localhost:3000/`.
