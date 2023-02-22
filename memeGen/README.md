@@ -16,10 +16,6 @@ This is a simple application that allows the edition of internet memes. The appl
 ```bash
 npm install #install dependencies
 ```
-- Build the application `npm run build` :
-```bash
-npm run build #build the application
-```
 - Run the application `npm start` :
 ```bash
 npm start #run the application

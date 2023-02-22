@@ -19,10 +19,6 @@ This is a memory game developed in React. The game is composed of 8, 12 or 16 ca
 ```bash
 npm install #install dependencies
 ```
-- Build the application `npm run build` :
-```bash
-npm run build #build the application
-```
 - Run the application `npm start` :
 ```bash
 npm start #run the application
